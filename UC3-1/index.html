@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Página Responsiva</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================
+       MOBILE FIRST
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f5f7fa;
+    }
+
+    .container {
+      width: min(90%, 1200px);
+      margin: 0 auto;
+    }
+
+    /* Cabeçalho */
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    /* Menu */
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    /* Seção principal */
+
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* Cards */
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 2rem 0 4rem;
+    }
+
+    .card {
+      flex: 1 1 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card h2 {
+      font-size: clamp(1.25rem, 4vw, 1.6rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    /* Rodapé */
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+
+    /* =========================
+       MEDIA QUERY 1
+       Tablets pequenos
+    ========================== */
+
+    @media (min-width: 576px) {
+      .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .card {
+        flex: 1 1 calc(50% - 1.5rem);
+      }
+    }
+
+
+    /* =========================
+       MEDIA QUERY 2
+       Tablets
+    ========================== */
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 6rem 0;
+      }
+
+      .cards {
+        gap: 2rem;
+      }
+
+      .card {
+        flex: 1 1 calc(33.333% - 2rem);
+      }
+    }
+
+
+    /* =========================
+       MEDIA QUERY 3
+       Desktop
+    ========================== */
+
+    @media (min-width: 1024px) {
+      .hero {
+        padding: 8rem 0;
+      }
+
+      .hero p {
+        max-width: 800px;
+      }
+
+      nav ul {
+        gap: 1.5rem;
+      }
+
+      .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="container header-content">
+
+      <div class="logo">
+        MeuSite
+      </div>
+
+      <!-- MENU -->
+      <nav>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Serviços</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- SEÇÃO PRINCIPAL -->
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <h1>Crie experiências incríveis</h1>
+
+        <p>
+          Uma página moderna, responsiva e preparada para funcionar
+          perfeitamente em celulares, tablets e computadores.
+        </p>
+
+        <a href="#" class="btn">Conheça mais</a>
+
+      </div>
+    </section>
+
+
+    <!-- 3 CARDS -->
+    <section class="container cards">
+
+      <article class="card">
+        <img
+          src="https://picsum.photos/800/450?random=1"
+          alt="Imagem representando criatividade"
+        >
+
+        <div class="card-content">
+          <h2>Criatividade</h2>
+          <p>
+            Desenvolva ideias criativas para criar experiências
+            digitais modernas e atrativas.
+          </p>
+        </div>
+      </article>
+
+
+      <article class="card">
+        <img
+          src="https://picsum.photos/800/450?random=2"
+          alt="Imagem representando tecnologia"
+        >
+
+        <div class="card-content">
+          <h2>Tecnologia</h2>
+          <p>
+            Utilize tecnologias modernas para construir projetos
+            rápidos, eficientes e responsivos.
+          </p>
+        </div>
+      </article>
+
+
+      <article class="card">
+        <img
+          src="https://picsum.photos/800/450?random=3"
+          alt="Imagem representando inovação"
+        >
+
+        <div class="card-content">
+          <h2>Inovação</h2>
+          <p>
+            Transforme suas ideias em soluções digitais inovadoras
+            e acessíveis em qualquer dispositivo.
+          </p>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2026 MeuSite. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
